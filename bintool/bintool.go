@@ -281,7 +281,7 @@ func (t *BinTool) installBinary() error {
 }
 
 func downloadAndExtract(command string, url string) (data []byte, err error) {
-	fmt.Printf("Downloading %s\n", command)
+	fmt.Printf("Downloading %s [%s]\n", command, url)
 
 	res, err := http.Get(url)
 	if err != nil {
