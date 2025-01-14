@@ -1,10 +1,11 @@
-//+build mage
+//go:build mage
+// +build mage
 
 package main
 
 import (
-	"github.com/princjef/mageutil/bintool"
-	"github.com/princjef/mageutil/shellcmd"
+	"github.com/parkertr/mageutil/bintool"
+	"github.com/parkertr/mageutil/shellcmd"
 )
 
 var (

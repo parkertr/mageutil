@@ -1,4 +1,4 @@
-module github.com/princjef/mageutil
+module github.com/parkertr/mageutil
 
 go 1.13
 

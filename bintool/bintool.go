@@ -20,7 +20,7 @@ import (
 
 	"github.com/cheggaaa/pb/v3"
 	"github.com/mattn/go-isatty"
-	"github.com/princjef/mageutil/shellcmd"
+	"github.com/parkertr/mageutil/shellcmd"
 )
 
 type (

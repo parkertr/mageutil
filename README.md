@@ -1,7 +1,7 @@
-[![Go Report Card](https://goreportcard.com/badge/github.com/princjef/mageutil)](https://goreportcard.com/report/github.com/princjef/mageutil)
-[![GitHub Actions](https://github.com/princjef/mageutil/workflows/Test/badge.svg)](https://github.com/princjef/mageutil/actions?query=workflow%3ATest+branch%3Amaster)
-[![Release](https://img.shields.io/github/release/princjef/mageutil.svg)](https://github.com/princjef/mageutil/releases/latest)
-[![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat)](https://pkg.go.dev/github.com/princjef/mageutil)
+[![Go Report Card](https://goreportcard.com/badge/github.com/parkertr/mageutil)](https://goreportcard.com/report/github.com/parkertr/mageutil)
+[![GitHub Actions](https://github.com/parkertr/mageutil/workflows/Test/badge.svg)](https://github.com/parkertr/mageutil/actions?query=workflow%3ATest+branch%3Amaster)
+[![Release](https://img.shields.io/github/release/parkertr/mageutil.svg)](https://github.com/parkertr/mageutil/releases/latest)
+[![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat)](https://pkg.go.dev/github.com/parkertr/mageutil)
 
 # mageutil
 
@@ -10,7 +10,7 @@ Each utility is in a subpackage of this one. You can install all of the
 utilities by running:
 
 ```
-go get github.com/princjef/mageutil
+go get github.com/parkertr/mageutil
 ```
 
 ## Utilities
@@ -18,7 +18,7 @@ go get github.com/princjef/mageutil
 ### bintool
 
 ```
-github.com/princjef/mageutil/bintool
+github.com/parkertr/mageutil/bintool
 ```
 
 The `bintool` utility provides a way to manage binary tool dependencies in your
@@ -40,7 +40,7 @@ For example, the following setup will allow you to work with
 ```go
 package main
 
-import "github.com/princjef/mageutil/bintool"
+import "github.com/parkertr/mageutil/bintool"
 
 var linter = bintool.Must(bintool.New(
 	"golangci-lint{{.BinExt}}",
@@ -71,7 +71,7 @@ For more detailed information, check out the [`bintool`][bintool] package docs.
 ### shellcmd
 
 ```
-github.com/princjef/mageutil/shellcmd
+github.com/parkertr/mageutil/shellcmd
 ```
 
 The `shellcmd` utility provides a simple wrapper around a command to execute,
@@ -84,7 +84,7 @@ reading. If you want a command to run tests on my package, you can do:
 ```go
 package main
 
-import "github.com/princjef/mageutil/shellcmd"
+import "github.com/parkertr/mageutil/shellcmd"
 
 func Test() error {
 	return shellcmd.Command("go test ./...").Run()
@@ -126,4 +126,4 @@ docs.
 [golangci-lint]: https://github.com/golangci/golangci-lint
 [bintool]: ./bintool/
 [shellcmd]: ./shellcmd/
-[issues]: https://github.com/princjef/mageutil/issues
+[issues]: https://github.com/parkertr/mageutil/issues
