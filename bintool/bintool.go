@@ -9,7 +9,6 @@ import (
 	"fmt"
 	"html/template"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"os"
 	"os/exec"
@@ -264,6 +263,7 @@ func isAlphanumeric(b byte) bool {
 }
 
 func (t *BinTool) installBinary() error {
+	fmt.Printf("Installing %s\n", t.tmplData.Cmd)
 	data, err := downloadAndExtract(t.tmplData.Cmd, t.url)
 	if err != nil {
 		return err
@@ -273,7 +273,7 @@ func (t *BinTool) installBinary() error {
 		return fmt.Errorf("bintool: unable to create destination folder %s: %w", t.folder, err)
 	}
 
-	if err := ioutil.WriteFile(t.tmplData.FullCmd, data, 0755); err != nil {
+	if err := os.WriteFile(t.tmplData.FullCmd, data, 0755); err != nil {
 		return fmt.Errorf("bintool: unable to write executable file %s: %w", t.tmplData.FullCmd, err)
 	}
 
@@ -281,7 +281,7 @@ func (t *BinTool) installBinary() error {
 }
 
 func downloadAndExtract(command string, url string) (data []byte, err error) {
-	fmt.Printf("Downloading %s [%s]\n", command, url)
+	fmt.Printf("  Downloading %s [%s]\n", command, url)
 
 	res, err := http.Get(url)
 	if err != nil {
@@ -417,7 +417,7 @@ func (t *BinTool) installGo() error {
 		return fmt.Errorf("bintool: unable to create destination folder %s: %w", t.folder, err)
 	}
 
-	fmt.Printf("Installing %s\n", t.tmplData.Cmd)
+	fmt.Printf("Installing go package %s\n", t.tmplData.Cmd)
 	goInstall := fmt.Sprintf("GOBIN=%s go install %s@%s", path, t.url, t.tmplData.Version)
 	if _, err := shellcmd.Command(goInstall).Output(); err != nil {
 		return fmt.Errorf("bintool: unable to install executable: %w", err)
